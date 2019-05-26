@@ -1,0 +1,10 @@
+# Base desktop install
+sudo apt install ubuntu-mate-core xinit lightdm
+
+# Sift CLI install
+sudo apt install nodejs npm jo git
+
+# Install npm packages
+cd sift-cli
+npm run pkg
+npm install
