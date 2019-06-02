@@ -440,18 +440,20 @@ function downloadUpdate(version) {
   console.log(`> downloading ${version}`)
   return co.execute(function * () {
     yield mkdirp(`${cachePath}/${version}`)
-    yield downloadReleaseFile(version, `sift-saltstack-${version}.tar.gz.asc`)
-    yield downloadReleaseFile(version, `sift-saltstack-${version}.tar.gz.sha256`)
-    yield downloadReleaseFile(version, `sift-saltstack-${version}.tar.gz.sha256.asc`)
+    // yield downloadReleaseFile(version, `sift-saltstack-${version}.tar.gz.asc`)
+    // yield downloadReleaseFile(version, `sift-saltstack-${version}.tar.gz.sha256`)
+    // yield downloadReleaseFile(version, `sift-saltstack-${version}.tar.gz.sha256.asc`)
     yield downloadRelease(version)
-    yield validateFile(version, `sift-saltstack-${version}.tar.gz`)
-    yield validateSignature(version, `sift-saltstack-${version}.tar.gz.sha256`)
+    // yield validateFile(version, `sift-saltstack-${version}.tar.gz`)
+    // yield validateSignature(version, `sift-saltstack-${version}.tar.gz.sha256`)
     yield extractUpdate(version, `sift-saltstack-${version}.tar.gz`)
   })
 }
 
 function performUpdate(version) {
-  const filepath = `${cachePath}/${version}/sift-saltstack-${version.replace('v', '')}`
+  // const filepath = `${cachePath}/${version}/sift-saltstack-${version.replace('v', '')}`
+  // For testing only....
+  const filepath = `/home/ubuntu/sift-saltstack`
   const outputFilepath = `${cachePath}/${version}/results.yml`
   const logFilepath = `${cachePath}/${version}/saltstack.log`
 
@@ -486,7 +488,6 @@ function performUpdate(version) {
       'state.apply', stateApplyMap[cli['--mode']],
       `pillar={sift_user: "${siftConfiguration['user']}"}`
     ]
-
     const update = spawn('salt-call', updateArgs)
     update.stdout.pipe(fs.createWriteStream(outputFilepath))
     update.stdout.pipe(logFile)

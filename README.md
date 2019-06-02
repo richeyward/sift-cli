@@ -26,9 +26,17 @@ A locally generated GPG key is needed to sign the package. Not mandatory but goo
 Insert last 8 chars from the key into the package.json, line 13
 
 ### Install npm packages
-`cd sift-cli
-npm install`
+```
+cd sift-cli
+
+npm install```
 
 ### Generate the sift-cli binary
 This will be stored alongside the GPG key in the releases directory
+
 `npm run pkg`
+
+### Execute sift-cli
+Run the newly created executable with:
+
+`sudo ./release/sift-cli-linux`
