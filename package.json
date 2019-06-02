@@ -10,7 +10,7 @@
     "pkg:prep": "jo branch=$(git rev-parse --abbrev-ref HEAD) commit=$(git rev-parse --short HEAD) rollbar=$(echo $ROLLBAR_SECRET) > config.json",
     "pkg:build": "pkg -t node8-linux --out-dir release package.json && cd release && mv sift-cli sift-cli-linux",
     "pkg:hash": "cd release && shasum -a 256 sift-cli-linux > sift-cli-linux.sha256",
-    "pkg:sign": "cd release && gpg --armor --clearsign --digest-algo SHA256 -u 467597C7 sift-cli-linux.sha256 && rm sift-cli-linux.sha256",
+    "pkg:sign": "cd release && gpg --armor --clearsign --digest-algo SHA256 -u 0DDAF304 sift-cli-linux.sha256 && rm sift-cli-linux.sha256",
     "pkg": "npm run pkg:prep && npm run pkg:build && npm run pkg:hash && npm run pkg:sign"
   },
   "author": "Erik Kristensen <erik@erikkristensen.com>",

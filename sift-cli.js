@@ -451,9 +451,7 @@ function downloadUpdate(version) {
 }
 
 function performUpdate(version) {
-  // const filepath = `${cachePath}/${version}/sift-saltstack-${version.replace('v', '')}`
-  // For testing only....
-  const filepath = `/home/ubuntu/sift-saltstack`
+  const filepath = `${cachePath}/${version}/sift-saltstack-${version.replace('v', '')}`
   const outputFilepath = `${cachePath}/${version}/results.yml`
   const logFilepath = `${cachePath}/${version}/saltstack.log`
 
